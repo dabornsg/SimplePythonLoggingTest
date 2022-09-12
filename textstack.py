@@ -137,7 +137,10 @@ def main():
                 continue
             ret = th.compare_size(idx1, idx2)
             if ret[0][1] != "" and ret[1][1] != "":
-                print(f"\"{ret[0][1]}\" is longer than \"{ret[1][1]}\" ({ret[0][0]} >= {ret[1][0]})")
+                if ret[0][0] == ret[1][0]:
+                    print(f"\"{ret[0][1]}\" is as long as \"{ret[1][1]}\" ({ret[0][0]} = {ret[1][0]})")
+                else:
+                    print(f"\"{ret[0][1]}\" is longer than \"{ret[1][1]}\" ({ret[0][0]} >= {ret[1][0]})")
             else:
                 print("Invalid indexes given for retrival")
             
