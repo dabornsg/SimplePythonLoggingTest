@@ -33,7 +33,6 @@ class TextStack:
             logging.error("No items available for getting longest string in TextStack")
             return ""
 
-
     def get_text(self, idx):
         logging.info(f"String in index {idx} requested")
         try:
@@ -79,14 +78,22 @@ def main():
             if ntext != "":
                 th.push_text(ntext)
                 print(f"\"{ntext}\" added to the stack!")
+            else:
+                print("Input was not a valid string")
             
         elif choice == "2":
             bt = th.biggest_text()
-            print("Longest text in stack: ", bt)
+            if bt != "":
+                print("Longest text in stack: ", bt)
+            else:
+                print("No text available for retrival")
 
         elif choice == "3":
             st = th.smallest_text()
-            print("Shortest text in stack: ", st)
+            if st != "":
+                print("Shortest text in stack: ", st)
+            else:
+                print("No text available for retrival")
 
         elif choice == "4":
             idx_s = str()
@@ -104,6 +111,8 @@ def main():
             rs = th.get_text(idx)
             if rs != "":
                 print(f"Text at index {idx}: {rs}")
+            else:
+                print(f"Could not retrieve text at index {idx}")
 
         elif choice == "5":
             idx1_s = str()
@@ -123,8 +132,14 @@ def main():
             except ValueError:
                 logging.error(f"Unable to convert input {idx1_s} and/or {idx2_s} to an integer")
                 continue
+            if idx1 == idx2:
+                print("Can't compare same indexes")
+                continue
             ret = th.compare_size(idx1, idx2)
-            print(f"\"{ret[0][1]}\" is longer than \"{ret[1][1]}\" ({ret[0][0]} >= {ret[1][0]})")
+            if ret[0][1] != "" and ret[1][1] != "":
+                print(f"\"{ret[0][1]}\" is longer than \"{ret[1][1]}\" ({ret[0][0]} >= {ret[1][0]})")
+            else:
+                print("Invalid indexes given for retrival")
             
         elif choice == "6":
             pass
