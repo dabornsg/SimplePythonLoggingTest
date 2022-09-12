@@ -25,7 +25,6 @@ Feel free to send Pull Requests of whatever you feel is lacking or any bugs you 
 
 
 ## License
-- - -
 MIT License
 
 Copyright (c) [2022] [Daniel Bornscheuer]
